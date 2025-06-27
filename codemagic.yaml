@@ -1,0 +1,15 @@
+workflows:
+  flutter-apk-build:
+    name: Build Android APK
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Install Flutter dependencies
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
